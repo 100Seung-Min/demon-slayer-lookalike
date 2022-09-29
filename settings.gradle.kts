@@ -13,4 +13,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "demon-slayer-lookalike"
-include ':app'
+include(":app")

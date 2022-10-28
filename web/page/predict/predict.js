@@ -32,10 +32,14 @@ async function pause() {
 
 async function stop() {
     if (isStop == true) {
-        await webcam.stop();
-        document.getElementById("webcam-container").removeChild(document.getElementById("webcam-container").childNodes[0]);
-        localStorage.setItem("character", maxName);
-        window.location.href = "../result/result.html"
+        if (confirm("이 이미지로 결과를 보시겠습니까?")) {
+            await webcam.stop();
+            document.getElementById("webcam-container").removeChild(document.getElementById("webcam-container").childNodes[0]);
+            localStorage.setItem("character", maxName);
+            window.location.href = "../result/result.html"
+        } else {
+            retry()
+        }
     } else {
         alert("사진을 찍어주세요")
     }

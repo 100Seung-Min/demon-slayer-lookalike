@@ -70,6 +70,7 @@ dependencies {
     implementation(Dependency.AndroidX.ROOM_KTX)
     implementation("org.tensorflow:tensorflow-lite-support:0.1.0")
     implementation("org.tensorflow:tensorflow-lite-metadata:0.1.0")
+    implementation("com.github.bumptech.glide:glide:3.7.0")
     kapt(Dependency.AndroidX.ROOM_COMPILER)
 
     implementation(Dependency.Kotlin.COROUTINES_CORE)

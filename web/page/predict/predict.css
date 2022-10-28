@@ -1,0 +1,72 @@
+@font-face {
+    font-family: kim;
+    src: local(NanumYaGeunHaNeunGimJuIm);
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+a {
+    font-family: kim;
+    text-decoration: none;
+    color: red;
+    position: fixed;
+    bottom: 20px;
+    font-size: 1.25rem;
+    margin-left: 20px;
+}
+
+body {
+    background-color: #010101;
+}
+
+#webcam-container {
+    text-align: center;
+    margin-top: 5%;
+}
+
+#title {
+    text-align: center;
+    margin-top: 2%;
+    font-size: 4rem;
+    font-family: kim;
+    color: aliceblue;
+}
+
+#retry_btn {
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    font-family: kim;
+    color: aliceblue;
+    position: fixed;
+    left: 55%;
+    bottom: 30%;
+    transform: translateX(-55%);
+}
+
+#photo_btn {
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    font-family: kim;
+    color: aliceblue;
+    position: fixed;
+    left: 45%;
+    bottom: 30%;
+    transform: translateX(-45%);
+}
+
+#result_btn {
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    font-family: kim;
+    color: aliceblue;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20%;
+}

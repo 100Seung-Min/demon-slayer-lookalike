@@ -1,0 +1,52 @@
+@font-face {
+    font-family: kim;
+    src: local(NanumYaGeunHaNeunGimJuIm);
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+a {
+    font-family: kim;
+    text-decoration: none;
+    color: red;
+    position: fixed;
+    bottom: 15%;
+    text-align: center;
+    width: 100%;
+    font-size: 1.5rem;
+}
+
+body {
+    background-color: #010101;
+}
+
+.result {
+    font-family: kim;
+    display: inline;
+    font-size: 2rem;
+    color: aliceblue;
+}
+
+#result {
+    font-family: kim;
+    display: inline;
+    font-size: 4rem;
+    color: aliceblue;
+}
+
+#result_div {
+    text-align: center;
+    bottom: 20%;
+    position: fixed;
+    width: 100%;
+}
+
+#character {
+    height: 600px;
+    display: block;
+    margin: auto;
+    margin-top: 5%;
+}

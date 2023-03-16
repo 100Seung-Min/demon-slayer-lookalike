@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/demonSlayerFragment"
+        android:name="com.example.demon_slayer_lookalike.view.component.demonslayer.DemonSlayerFragment"
+        android:label="DemonSlayerFragment"
+        tools:layout="@layout/fragment_demon_slayer">
+        <action
+            android:id="@+id/action_demonSlayerFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.example.demon_slayer_lookalike.view.component.result.ResultFragment"
+        android:label="ResultFragment"
+        tools:layout="@layout/fragment_result" />
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.example.demon_slayer_lookalike.view.component.start.StartFragment"
+        android:label="StartFragment"
+        tools:layout="@layout/fragment_start">
+        <action
+            android:id="@+id/action_startFragment_to_demonSlayerFragment"
+            app:destination="@id/demonSlayerFragment" />
+    </fragment>
+</navigation>

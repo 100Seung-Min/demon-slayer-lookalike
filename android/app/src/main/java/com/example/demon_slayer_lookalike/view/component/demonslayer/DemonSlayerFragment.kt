@@ -84,12 +84,10 @@ class DemonSlayerFragment :
             }
             binding.moveResultBtn -> {
                 if (binding.img.isVisible) {
-                    val action =
+                    findNavController().navigate(
                         DemonSlayerFragmentDirections.actionDemonSlayerFragmentToResultFragment(
                             maxPos = maxPos
                         )
-                    findNavController().navigate(
-                        action
                     )
                 }
             }

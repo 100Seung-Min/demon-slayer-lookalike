@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/kim"
             android:paddingStart="20dp"
-            android:text="귀멸의 칼날"
+            android:text="애니메이션"
             android:textColor="@color/white"
             android:textSize="55sp"
             app:layout_constraintBottom_toTopOf="@id/logo" />

@@ -9,6 +9,7 @@ import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.demon_slayer_lookalike.R
 import com.example.demon_slayer_lookalike.databinding.FragmentFaceBinding
 import com.example.demon_slayer_lookalike.ml.ModelDemonSlayer
@@ -22,6 +23,7 @@ class FaceFragment :
 
     private var maxPos = 0
     private lateinit var image: Bitmap
+    private var title = "귀멸의 칼날"
 
     private val getContent =
         registerForActivityResult(ActivityResultContracts.GetContent()) { imageUri ->
@@ -47,10 +49,19 @@ class FaceFragment :
 
     override fun createView() {
         binding.faceFragment = this
+        loadArgs()
+    }
+
+    private fun loadArgs() {
+        val args: FaceFragmentArgs by navArgs()
+        title = args.type
     }
 
     private fun callAi(image: Bitmap) {
-        val model = ModelDemonSlayer.newInstance(requireContext())
+        val model = when (title) {
+            "귀멸의 칼날" -> ModelDemonSlayer.newInstance(requireContext())
+            else -> ModelDemonSlayer.newInstance(requireContext())
+        }
         val outputs = model.process(image.toBuffer())
         val outputFeature0 = outputs.outputFeature0AsTensorBuffer
         val confidences = outputFeature0.floatArray

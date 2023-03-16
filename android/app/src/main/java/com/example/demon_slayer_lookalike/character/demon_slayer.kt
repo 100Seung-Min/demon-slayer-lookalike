@@ -1,4 +1,6 @@
-package com.example.demon_slayer_lookalike
+package com.example.demon_slayer_lookalike.character
+
+import com.example.demon_slayer_lookalike.R
 
 
 val classes = arrayOf(

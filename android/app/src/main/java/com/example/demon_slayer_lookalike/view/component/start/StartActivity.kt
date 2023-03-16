@@ -1,10 +1,11 @@
-package com.example.demon_slayer_lookalike
+package com.example.demon_slayer_lookalike.view.component.start
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.demon_slayer_lookalike.databinding.ActivityStartBinding
+import com.example.demon_slayer_lookalike.view.component.main.MainActivity
 
 class StartActivity: AppCompatActivity() {
     lateinit var binding: ActivityStartBinding

@@ -1,4 +1,4 @@
-package com.example.demon_slayer_lookalike
+package com.example.demon_slayer_lookalike.view.component.main
 
 import android.Manifest
 import android.content.Intent
@@ -13,6 +13,7 @@ import com.example.demon_slayer_lookalike.databinding.ActivityMainBinding
 import com.example.demon_slayer_lookalike.ml.ModelDemonSlayer
 import com.example.demon_slayer_lookalike.utils.imageSize
 import com.example.demon_slayer_lookalike.utils.toBuffer
+import com.example.demon_slayer_lookalike.view.component.demonslayer.ResultActivity
 import kotlin.math.min
 
 class MainActivity : AppCompatActivity() {

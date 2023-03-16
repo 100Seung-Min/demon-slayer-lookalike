@@ -6,13 +6,13 @@
     <data>
         <variable
             name="main"
-            type="com.example.demon_slayer_lookalike.MainActivity" />
+            type="com.example.demon_slayer_lookalike.view.component.main.MainActivity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity"
+        tools:context=".view.component.main.MainActivity"
         android:orientation="vertical"
         android:background="@color/background">
 

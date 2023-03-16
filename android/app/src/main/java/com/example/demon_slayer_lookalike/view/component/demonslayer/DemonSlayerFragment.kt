@@ -1,25 +1,17 @@
 package com.example.demon_slayer_lookalike.view.component.demonslayer
 
-import android.Manifest
 import android.app.Activity.RESULT_OK
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.media.ThumbnailUtils
-import android.os.Bundle
-import android.provider.MediaStore
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat.checkSelfPermission
 import androidx.navigation.fragment.findNavController
 import com.example.demon_slayer_lookalike.R
-import com.example.demon_slayer_lookalike.databinding.ActivityMainBinding
 import com.example.demon_slayer_lookalike.databinding.FragmentDemonSlayerBinding
 import com.example.demon_slayer_lookalike.ml.ModelDemonSlayer
 import com.example.demon_slayer_lookalike.utils.imageSize
 import com.example.demon_slayer_lookalike.utils.toBuffer
 import com.example.demon_slayer_lookalike.view.base.BaseFragment
-import com.example.demon_slayer_lookalike.view.component.result.ResultFragment
 import kotlin.math.min
 
 class DemonSlayerFragment :
@@ -62,7 +54,11 @@ class DemonSlayerFragment :
 
             }
             binding.moveResultBtn -> {
-                findNavController().navigate(R.id.action_demonSlayerFragment_to_resultFragment)
+                val action =
+                    DemonSlayerFragmentDirections.actionDemonSlayerFragmentToResultFragment(maxPos = maxPos)
+                findNavController().navigate(
+                    action
+                )
             }
             binding.moveFirstBtn -> {
                 findNavController().popBackStack()

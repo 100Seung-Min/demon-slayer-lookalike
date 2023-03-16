@@ -14,7 +14,7 @@ class StartFragment : BaseFragment<FragmentStartBinding>(R.layout.fragment_start
     fun onClick(view: View) {
         when (view) {
             binding.moveMenuBtn -> {
-                findNavController().navigate(R.id.action_startFragment_to_demonSlayerFragment)
+                findNavController().navigate(R.id.action_startFragment_to_faceFragment)
             }
         }
     }

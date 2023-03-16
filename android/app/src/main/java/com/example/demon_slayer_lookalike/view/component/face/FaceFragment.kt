@@ -1,4 +1,4 @@
-package com.example.demon_slayer_lookalike.view.component.demonslayer
+package com.example.demon_slayer_lookalike.view.component.face
 
 import android.content.Intent
 import android.graphics.Bitmap
@@ -10,15 +10,15 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import com.example.demon_slayer_lookalike.R
-import com.example.demon_slayer_lookalike.databinding.FragmentDemonSlayerBinding
+import com.example.demon_slayer_lookalike.databinding.FragmentFaceBinding
 import com.example.demon_slayer_lookalike.ml.ModelDemonSlayer
 import com.example.demon_slayer_lookalike.utils.imageSize
 import com.example.demon_slayer_lookalike.utils.toBuffer
 import com.example.demon_slayer_lookalike.view.base.BaseFragment
 import kotlin.math.min
 
-class DemonSlayerFragment :
-    BaseFragment<FragmentDemonSlayerBinding>(R.layout.fragment_demon_slayer) {
+class FaceFragment :
+    BaseFragment<FragmentFaceBinding>(R.layout.fragment_face) {
 
     private var maxPos = 0
     private lateinit var image: Bitmap
@@ -46,7 +46,7 @@ class DemonSlayerFragment :
         }
 
     override fun createView() {
-        binding.demonSlayerFragment = this
+        binding.faceFragment = this
     }
 
     private fun callAi(image: Bitmap) {
@@ -85,7 +85,7 @@ class DemonSlayerFragment :
             binding.moveResultBtn -> {
                 if (binding.img.isVisible) {
                     findNavController().navigate(
-                        DemonSlayerFragmentDirections.actionDemonSlayerFragmentToResultFragment(
+                        FaceFragmentDirections.actionFaceFragmentToResultFragment(
                             maxPos = maxPos
                         )
                     )

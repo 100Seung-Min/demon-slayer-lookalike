@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="demonSlayerFragment"
-            type="com.example.demon_slayer_lookalike.view.component.demonslayer.DemonSlayerFragment" />
+            name="faceFragment"
+            type="com.example.demon_slayer_lookalike.view.component.face.FaceFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,7 +15,7 @@
         android:layout_height="match_parent"
         android:background="@color/background"
         android:orientation="vertical"
-        tools:context=".view.component.demonslayer.DemonSlayerFragment">
+        tools:context=".view.component.face.FaceFragment">
 
         <TextView
             android:layout_width="wrap_content"
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:background="@color/transparent"
             android:fontFamily="@font/kim"
-            android:onClick="@{demonSlayerFragment::onClick}"
+            android:onClick="@{faceFragment::onClick}"
             android:text="카메라로 이동"
             android:textColor="@color/white"
             android:textSize="22sp"
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:background="@color/transparent"
             android:fontFamily="@font/kim"
-            android:onClick="@{demonSlayerFragment::onClick}"
+            android:onClick="@{faceFragment::onClick}"
             android:text="갤러리로 이동"
             android:textColor="@color/white"
             android:textSize="22sp"
@@ -64,7 +64,6 @@
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:layout_marginBottom="100dp"
-            android:onClick="@{demonSlayerFragment::onClick}"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -76,7 +75,7 @@
             android:layout_marginTop="30dp"
             android:background="@color/transparent"
             android:fontFamily="@font/kim"
-            android:onClick="@{demonSlayerFragment::onClick}"
+            android:onClick="@{faceFragment::onClick}"
             android:text="다시 하기"
             android:textColor="@color/white"
             android:textSize="22sp"
@@ -92,7 +91,7 @@
             android:layout_marginBottom="100dp"
             android:background="@color/transparent"
             android:fontFamily="@font/kim"
-            android:onClick="@{demonSlayerFragment::onClick}"
+            android:onClick="@{faceFragment::onClick}"
             android:text="결과"
             android:textColor="@color/white"
             android:textSize="22sp"
@@ -106,7 +105,7 @@
             android:layout_height="80dp"
             android:background="@color/transparent"
             android:fontFamily="@font/kim"
-            android:onClick="@{demonSlayerFragment::onClick}"
+            android:onClick="@{faceFragment::onClick}"
             android:text="처음으로"
             android:textColor="@color/red"
             android:textSize="22sp"

@@ -6,23 +6,23 @@
     app:startDestination="@id/startFragment">
 
     <fragment
-        android:id="@+id/demonSlayerFragment"
-        android:name="com.example.demon_slayer_lookalike.view.component.demonslayer.DemonSlayerFragment"
+        android:id="@+id/faceFragment"
+        android:name="com.example.demon_slayer_lookalike.view.component.face.FaceFragment"
         android:label="DemonSlayerFragment"
-        tools:layout="@layout/fragment_demon_slayer">
+        tools:layout="@layout/fragment_face">
         <action
-            android:id="@+id/action_demonSlayerFragment_to_resultFragment"
+            android:id="@+id/action_faceFragment_to_resultFragment"
             app:destination="@id/resultFragment" />
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
         android:name="com.example.demon_slayer_lookalike.view.component.result.ResultFragment"
         android:label="ResultFragment"
-        tools:layout="@layout/fragment_result" >
+        tools:layout="@layout/fragment_result">
         <argument
             android:name="maxPos"
-            app:argType="integer"
-            android:defaultValue="0" />
+            android:defaultValue="0"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/startFragment"
@@ -30,7 +30,7 @@
         android:label="StartFragment"
         tools:layout="@layout/fragment_start">
         <action
-            android:id="@+id/action_startFragment_to_demonSlayerFragment"
-            app:destination="@id/demonSlayerFragment" />
+            android:id="@+id/action_startFragment_to_faceFragment"
+            app:destination="@id/faceFragment" />
     </fragment>
 </navigation>

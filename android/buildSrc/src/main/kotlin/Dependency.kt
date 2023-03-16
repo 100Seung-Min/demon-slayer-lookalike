@@ -6,7 +6,7 @@ object Dependency {
         const val GRADLE_KOTLIN =
             "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.GRADLE_KOTLIN}"
         const val GRADLE_NAVIGATION =
-            "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.GRADLE_NAVIGATION}"
+            "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.NAV}"
     }
 
     object Kotlin {

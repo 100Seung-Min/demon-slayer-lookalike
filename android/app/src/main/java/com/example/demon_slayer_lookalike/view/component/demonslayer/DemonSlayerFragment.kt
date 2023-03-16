@@ -1,10 +1,13 @@
 package com.example.demon_slayer_lookalike.view.component.demonslayer
 
-import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.ImageDecoder
 import android.media.ThumbnailUtils
+import android.provider.MediaStore
 import android.view.View
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import com.example.demon_slayer_lookalike.R
 import com.example.demon_slayer_lookalike.databinding.FragmentDemonSlayerBinding
@@ -18,6 +21,29 @@ class DemonSlayerFragment :
     BaseFragment<FragmentDemonSlayerBinding>(R.layout.fragment_demon_slayer) {
 
     private var maxPos = 0
+    private lateinit var image: Bitmap
+
+    private val getContent =
+        registerForActivityResult(ActivityResultContracts.GetContent()) { imageUri ->
+            if (imageUri != null) {
+                image = ImageDecoder.decodeBitmap(
+                    ImageDecoder.createSource(
+                        requireActivity().contentResolver,
+                        imageUri
+                    )
+                ).copy(Bitmap.Config.RGBA_F16, true)
+                viewImage()
+            }
+        }
+
+    private val getPicture =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            val imageUri = it.data?.extras?.get("data")
+            if (imageUri != null) {
+                image = imageUri as Bitmap
+                viewImage()
+            }
+        }
 
     override fun createView() {
         binding.demonSlayerFragment = this
@@ -34,50 +60,50 @@ class DemonSlayerFragment :
         model.close()
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == 1 && resultCode == RESULT_OK) {
-            var image: Bitmap = data?.extras?.get("data") as Bitmap
-            val dimension = min(image.width, image.height)
-            image = ThumbnailUtils.extractThumbnail(image, dimension, dimension)
-            binding.img.setImageBitmap(image)
-            image = Bitmap.createScaledBitmap(image, imageSize, imageSize, false)
-            callAi(image)
-            binding.addPhoto.visibility = View.GONE
-            binding.rePhoto.visibility = View.VISIBLE
+    private fun viewImage() {
+        val dimension = min(image.width, image.height)
+        image = ThumbnailUtils.extractThumbnail(image, dimension, dimension)
+        binding.img.apply {
+            visibility = View.VISIBLE
+            setImageBitmap(image)
         }
-        super.onActivityResult(requestCode, resultCode, data)
+        image = Bitmap.createScaledBitmap(image, imageSize, imageSize, false)
+        callAi(image)
+        binding.moveCamera.visibility = View.GONE
+        binding.moveGallery.visibility = View.GONE
+        binding.rePhoto.visibility = View.VISIBLE
     }
 
     fun onClick(view: View) {
         when (view) {
-            binding.addPhoto -> {
-
+            binding.moveCamera -> {
+                getPicture.launch(Intent(MediaStore.ACTION_IMAGE_CAPTURE))
+            }
+            binding.moveGallery -> {
+                getContent.launch("image/*")
             }
             binding.moveResultBtn -> {
-                val action =
-                    DemonSlayerFragmentDirections.actionDemonSlayerFragmentToResultFragment(maxPos = maxPos)
-                findNavController().navigate(
-                    action
-                )
+                if (binding.img.isVisible) {
+                    val action =
+                        DemonSlayerFragmentDirections.actionDemonSlayerFragmentToResultFragment(
+                            maxPos = maxPos
+                        )
+                    findNavController().navigate(
+                        action
+                    )
+                }
             }
             binding.moveFirstBtn -> {
                 findNavController().popBackStack()
             }
+            binding.rePhoto -> {
+                with(binding) {
+                    img.visibility = View.GONE
+                    moveCamera.visibility = View.VISIBLE
+                    moveGallery.visibility = View.VISIBLE
+                    rePhoto.visibility = View.GONE
+                }
+            }
         }
-    }
-
-    fun picture(view: View) {
-//        if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
-//            val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-//            startActivityForResult(cameraIntent, 1)
-//        } else {
-//            requestPermissions(arrayOf(Manifest.permission.CAMERA), 100)
-//        }
-    }
-
-    fun result(view: View) {
-    }
-
-    fun back(view: View) {
     }
 }

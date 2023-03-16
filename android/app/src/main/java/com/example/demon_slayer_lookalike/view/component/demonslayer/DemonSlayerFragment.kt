@@ -11,6 +11,7 @@ import android.provider.MediaStore
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat.checkSelfPermission
+import androidx.navigation.fragment.findNavController
 import com.example.demon_slayer_lookalike.R
 import com.example.demon_slayer_lookalike.databinding.ActivityMainBinding
 import com.example.demon_slayer_lookalike.databinding.FragmentDemonSlayerBinding
@@ -56,17 +57,15 @@ class DemonSlayerFragment :
     }
 
     fun onClick(view: View) {
-        with(binding) {
-            when (view) {
-                addPhoto -> {
+        when (view) {
+            binding.addPhoto -> {
 
-                }
-                moveResultBtn -> {
-
-                }
-                moveFirstBtn -> {
-
-                }
+            }
+            binding.moveResultBtn -> {
+                findNavController().navigate(R.id.action_demonSlayerFragment_to_resultFragment)
+            }
+            binding.moveFirstBtn -> {
+                findNavController().popBackStack()
             }
         }
     }

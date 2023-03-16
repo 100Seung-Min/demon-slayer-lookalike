@@ -18,7 +18,12 @@
         android:id="@+id/resultFragment"
         android:name="com.example.demon_slayer_lookalike.view.component.result.ResultFragment"
         android:label="ResultFragment"
-        tools:layout="@layout/fragment_result" />
+        tools:layout="@layout/fragment_result" >
+        <argument
+            android:name="maxPos"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
     <fragment
         android:id="@+id/startFragment"
         android:name="com.example.demon_slayer_lookalike.view.component.start.StartFragment"

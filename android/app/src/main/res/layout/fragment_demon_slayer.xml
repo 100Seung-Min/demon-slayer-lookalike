@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:background="@color/transparent"
             android:fontFamily="@font/kim"
-            android:onClick="picture"
+            android:onClick="@{demonSlayerFragment::onClick}"
             android:text="사진등록"
             android:textColor="@color/white"
             android:textSize="22sp"

@@ -2,7 +2,8 @@ object Dependency {
 
     object GradlePlugin {
         const val GRADLE_ANDROID = "com.android.tools.build:gradle:${Versions.GRADLE_ANDROID}"
-        const val GRADLE_KOTLIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.GRADLE_KOTLIN}"
+        const val GRADLE_KOTLIN =
+            "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.GRADLE_KOTLIN}"
         const val GRADLE_HILT = "com.google.dagger:hilt-android-gradle-plugin:${Versions.HILT}"
     }
 
@@ -15,7 +16,8 @@ object Dependency {
     }
 
     object AndroidX {
-        const val CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout:${Versions.CONSTRAINT_LAYOUT}"
+        const val CONSTRAINT_LAYOUT =
+            "androidx.constraintlayout:constraintlayout:${Versions.CONSTRAINT_LAYOUT}"
 
         const val CORE_KTX = "androidx.core:core-ktx:${Versions.CORE_KTX}"
         const val APP_COMPAT = "androidx.appcompat:appcompat:${Versions.APP_COMPAT}"
@@ -27,36 +29,10 @@ object Dependency {
             "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.LIFECYCLE_KTX}"
         const val LIFECYCLE_LIVEDATA_KTX =
             "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.LIFECYCLE_KTX}"
-
-        const val ROOM_RUNTIME = "androidx.room:room-runtime:${Versions.ROOM}"
-        const val ROOM_KTX = "androidx.room:room-ktx:${Versions.ROOM}"
-        const val ROOM_COMPILER = "androidx.room:room-compiler:${Versions.ROOM}"
     }
 
     object Google {
-        const val HILT_ANDROID = "com.google.dagger:hilt-android:${Versions.HILT}"
-        const val HILT_ANDROID_COMPILER = "com.google.dagger:hilt-android-compiler:${Versions.HILT}"
-
         const val MATERIAL = "com.google.android.material:material:${Versions.MATERIAL}"
-
-        const val COMPOSE_UI = "androidx.compose.ui:ui:${Versions.COMPOSE}"
-        const val COMPOSE_MATERIAL = "androidx.compose.material:material:${Versions.COMPOSE}"
-        const val COMPOSE_PREVIEW = "androidx.compose.ui:ui-tooling-preview:${Versions.COMPOSE}"
-        const val COMPOSE_ACTIVITY = "androidx.activity:activity-compose:${Versions.ACTIVITY_COMPOSE}"
-        const val COMPOSE_TEST = "androidx.compose.ui:ui-test-junit4:${Versions.COMPOSE}"
-        const val COMPOSE_UI_TOOL = "androidx.compose.ui:ui-tooling:${Versions.COMPOSE}"
-        const val COMPOSE_NAV = "androidx.navigation:navigation-compose:${Versions.NAV}"
-    }
-
-    object Libraries {
-        const val RETROFIT = "com.squareup.retrofit2:retrofit:${Versions.RETROFIT}"
-        const val RETROFIT_CONVERTER_GSON =
-            "com.squareup.retrofit2:converter-gson:${Versions.RETROFIT}"
-        const val OKHTTP = "com.squareup.okhttp3:okhttp:${Versions.OKHTTP}"
-        const val OKHTTP_LOGGING_INTERCEPTOR =
-            "com.squareup.okhttp3:logging-interceptor:${Versions.OKHTTP}"
-        const val MOSHI = "com.squareup.moshi:moshi-kotlin:${Versions.MOSHI}"
-        const val MOSHI_COMPILER = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.MOSHI}"
     }
 
     object UnitTest {
@@ -72,5 +48,14 @@ object Dependency {
     object BottomNav {
         const val NAV_FRAGMENT = "androidx.navigation:navigation-fragment-ktx:${Versions.NAV}"
         const val NAV_UI = "androidx.navigation:navigation-ui-ktx:${Versions.NAV}"
+    }
+
+    object Tensorflow {
+        const val SUPPORT = "org.tensorflow:tensorflow-lite-support:${Versions.TENSORFLOW_LITE}"
+        const val METADATA = "org.tensorflow:tensorflow-lite-metadata:${Versions.TENSORFLOW_LITE}"
+    }
+
+    object Glide {
+        const val GLIDE = "com.github.bumptech.glide:glide:${Versions.GLIDE}"
     }
 }

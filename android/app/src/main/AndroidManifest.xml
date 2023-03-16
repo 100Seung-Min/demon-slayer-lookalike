@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.demon_slayer_lookalike">
 
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -16,7 +16,7 @@
         android:theme="@style/Theme.Demonslayerlookalike"
         tools:targetApi="31">
         <activity
-            android:name=".view.component.start.StartActivity"
+            android:name=".view.component.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,10 +24,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.component.demonslayer.ResultActivity"
-            android:exported="false"/>
-        <activity android:name=".view.component.main.MainActivity"
-            android:exported="false"/>
     </application>
 
 </manifest>

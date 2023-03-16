@@ -4,6 +4,9 @@
 
     <data>
 
+        <variable
+            name="resultFragment"
+            type="com.example.demon_slayer_lookalike.view.component.result.ResultFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,60 +19,61 @@
             android:layout_width="wrap_content"
             android:layout_height="400dp"
             android:layout_marginTop="100dp"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
             android:id="@+id/resultLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/image"
             android:layout_marginTop="20dp"
             android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/image">
 
             <TextView
-                android:fontFamily="@font/kim"
-                android:textSize="22sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
+                android:layout_gravity="bottom"
+                android:fontFamily="@font/kim"
                 android:text="당신의 닮은 꼴은 "
-                android:layout_gravity="bottom"/>
+                android:textColor="@color/white"
+                android:textSize="22sp" />
 
             <TextView
-                android:fontFamily="@font/kim"
                 android:id="@+id/result"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/kim"
                 android:textColor="@color/white"
-                android:textSize="40sp"/>
+                android:textSize="40sp" />
 
             <TextView
-                android:fontFamily="@font/kim"
-                android:textSize="22sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
+                android:layout_gravity="bottom"
+                android:fontFamily="@font/kim"
                 android:text=" 입니다"
-                android:layout_gravity="bottom"/>
+                android:textColor="@color/white"
+                android:textSize="22sp" />
 
         </LinearLayout>
 
         <TextView
-            android:onClick="reStart"
-            android:fontFamily="@font/kim"
+            android:id="@+id/moveFirstBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/kim"
+            android:onClick="@{resultFragment::onClick}"
+            android:text="처음으로"
             android:textColor="@color/red"
             android:textSize="22sp"
-            android:text="처음으로"
-            app:layout_constraintTop_toBottomOf="@id/resultLayout"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="20dp"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/resultLayout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

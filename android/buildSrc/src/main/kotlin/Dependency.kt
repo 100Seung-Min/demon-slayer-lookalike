@@ -2,9 +2,11 @@ object Dependency {
 
     object GradlePlugin {
         const val GRADLE_ANDROID = "com.android.tools.build:gradle:${Versions.GRADLE_ANDROID}"
+        const val GRADLE_HILT = "com.google.dagger:hilt-android-gradle-plugin:${Versions.HILT}"
         const val GRADLE_KOTLIN =
             "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.GRADLE_KOTLIN}"
-        const val GRADLE_HILT = "com.google.dagger:hilt-android-gradle-plugin:${Versions.HILT}"
+        const val GRADLE_NAVIGATION =
+            "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.GRADLE_NAVIGATION}"
     }
 
     object Kotlin {
@@ -16,15 +18,12 @@ object Dependency {
     }
 
     object AndroidX {
-        const val CONSTRAINT_LAYOUT =
-            "androidx.constraintlayout:constraintlayout:${Versions.CONSTRAINT_LAYOUT}"
-
         const val CORE_KTX = "androidx.core:core-ktx:${Versions.CORE_KTX}"
         const val APP_COMPAT = "androidx.appcompat:appcompat:${Versions.APP_COMPAT}"
-
         const val ACTIVITY_KTX = "androidx.activity:activity-ktx:${Versions.ACTIVITY_KTX}"
         const val FRAGMENT_KTX = "androidx.fragment:fragment-ktx:${Versions.FRAGMENT_KTX}"
-
+        const val CONSTRAINT_LAYOUT =
+            "androidx.constraintlayout:constraintlayout:${Versions.CONSTRAINT_LAYOUT}"
         const val LIFECYCLE_VIEWMODEL_KTX =
             "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.LIFECYCLE_KTX}"
         const val LIFECYCLE_LIVEDATA_KTX =

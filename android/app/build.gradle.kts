@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("kotlin-android")
     id("kotlin-kapt")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -38,7 +39,7 @@ android {
     kotlinOptions {
         jvmTarget = Versions.JAVA_VERSION.toString()
     }
-    
+
     buildFeatures {
         dataBinding = true
         mlModelBinding = true

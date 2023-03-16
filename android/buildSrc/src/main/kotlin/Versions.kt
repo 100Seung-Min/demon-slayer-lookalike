@@ -3,6 +3,7 @@ import org.gradle.api.JavaVersion
 object Versions {
     const val GRADLE_ANDROID = "7.0.4"
     const val GRADLE_KOTLIN = "1.6.10"
+    const val GRADLE_NAVIGATION = "2.3.5"
 
     val JAVA_VERSION = JavaVersion.VERSION_1_8
     const val KOTLIN_VERSION = "1.6.10"

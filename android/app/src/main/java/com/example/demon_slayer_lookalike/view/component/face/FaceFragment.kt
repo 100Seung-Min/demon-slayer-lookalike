@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.demon_slayer_lookalike.R
 import com.example.demon_slayer_lookalike.databinding.FragmentFaceBinding
+import com.example.demon_slayer_lookalike.ml.ModelChainsawMan
 import com.example.demon_slayer_lookalike.ml.ModelDemonSlayer
 import com.example.demon_slayer_lookalike.utils.imageSize
 import com.example.demon_slayer_lookalike.utils.toBuffer
@@ -55,20 +56,25 @@ class FaceFragment :
     private fun loadArgs() {
         val args: FaceFragmentArgs by navArgs()
         title = args.type
+        binding.titleTxt.text = "$title 닮은 꼴 찾기"
     }
 
     private fun callAi(image: Bitmap) {
-        val model = when (title) {
-            "귀멸의 칼날" -> ModelDemonSlayer.newInstance(requireContext())
-            else -> ModelDemonSlayer.newInstance(requireContext())
+        val demonSlayerModel = ModelDemonSlayer.newInstance(requireContext())
+        val chainsawManModel = ModelChainsawMan.newInstance(requireContext())
+        val confidences = when (title) {
+            "귀멸의 칼날" -> demonSlayerModel
+                .process(image.toBuffer()).outputFeature0AsTensorBuffer.floatArray
+            "체인소 맨" -> chainsawManModel
+                .process(image.toBuffer()).outputFeature0AsTensorBuffer.floatArray
+            else -> demonSlayerModel
+                .process(image.toBuffer()).outputFeature0AsTensorBuffer.floatArray
         }
-        val outputs = model.process(image.toBuffer())
-        val outputFeature0 = outputs.outputFeature0AsTensorBuffer
-        val confidences = outputFeature0.floatArray
         confidences.forEachIndexed { index, fl ->
             if (fl == confidences.maxOrNull()!!) maxPos = index
         }
-        model.close()
+        demonSlayerModel.close()
+        chainsawManModel.close()
     }
 
     private fun viewImage() {
@@ -97,6 +103,7 @@ class FaceFragment :
                 if (binding.img.isVisible) {
                     findNavController().navigate(
                         FaceFragmentDirections.actionFaceFragmentToResultFragment(
+                            type = title,
                             maxPos = maxPos
                         )
                     )

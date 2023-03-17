@@ -6,6 +6,7 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.demon_slayer_lookalike.R
+import com.example.demon_slayer_lookalike.character_list.chainsawMan
 import com.example.demon_slayer_lookalike.character_list.demonSlayer
 import com.example.demon_slayer_lookalike.databinding.FragmentResultBinding
 import com.example.demon_slayer_lookalike.view.base.BaseFragment
@@ -14,13 +15,18 @@ class ResultFragment : BaseFragment<FragmentResultBinding>(R.layout.fragment_res
     override fun createView() {
         binding.resultFragment = this
         val args: ResultFragmentArgs by navArgs()
-        setResult(maxPos = args.maxPos)
+        setResult(maxPos = args.maxPos, type = args.type)
     }
 
-    private fun setResult(maxPos: Int) {
-        binding.result.text = demonSlayer[maxPos].name
+    private fun setResult(maxPos: Int, type: String) {
+        val resultArray = when (type) {
+            "귀멸의 칼날" -> demonSlayer
+            "체인소 맨" -> chainsawMan
+            else -> demonSlayer
+        }
+        binding.result.text = resultArray[maxPos].name
         Glide.with(requireActivity())
-            .load(demonSlayer[maxPos].imgId)
+            .load(resultArray[maxPos].imgId)
             .diskCacheStrategy(DiskCacheStrategy.SOURCE)
             .into(binding.image)
     }

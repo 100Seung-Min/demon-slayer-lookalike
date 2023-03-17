@@ -18,6 +18,7 @@
         tools:context=".view.component.face.FaceFragment">
 
         <TextView
+            android:id="@+id/titleTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
@@ -106,7 +107,7 @@
             android:background="@color/transparent"
             android:fontFamily="@font/kim"
             android:onClick="@{faceFragment::onClick}"
-            android:text="처음으로"
+            android:text="이전으로"
             android:textColor="@color/red"
             android:textSize="22sp"
             app:layout_constraintBottom_toBottomOf="parent"

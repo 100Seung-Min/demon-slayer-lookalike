@@ -19,6 +19,9 @@ class MenuFragment : BaseFragment<FragmentMenuBinding>(R.layout.fragment_menu) {
             binding.demonSlayerBtn -> {
                 moveFaceFragment("귀멸의 칼날")
             }
+            binding.chainsawManBtn -> {
+                moveFaceFragment("체인소 맨")
+            }
         }
     }
 }

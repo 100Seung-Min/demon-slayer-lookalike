@@ -27,6 +27,10 @@
             android:name="maxPos"
             android:defaultValue="0"
             app:argType="integer" />
+        <argument
+            android:name="type"
+            app:argType="string"
+            android:defaultValue="귀멸의 칼날" />
     </fragment>
     <fragment
         android:id="@+id/startFragment"

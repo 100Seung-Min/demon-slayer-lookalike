@@ -49,7 +49,7 @@ android {
 dependencies {
     implementation(Dependency.AndroidX.CORE_KTX)
     implementation(Dependency.AndroidX.APP_COMPAT)
-    implementation(Dependency.AndroidX.CORE_KTX)
+    implementation(Dependency.AndroidX.ACTIVITY_KTX)
     implementation(Dependency.AndroidX.FRAGMENT_KTX)
     implementation(Dependency.AndroidX.CONSTRAINT_LAYOUT)
     implementation(Dependency.AndroidX.LIFECYCLE_VIEWMODEL_KTX)

@@ -1,7 +1,5 @@
 package com.example.demon_slayer_lookalike.character_list
 
-import com.example.demon_slayer_lookalike.R
-
 val demonSlayer = arrayOf(
     Character(
         "카마도 탄지로",

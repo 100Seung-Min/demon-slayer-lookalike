@@ -36,10 +36,10 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/chainsawManBtn"
+                    android:id="@+id/ghibriBtn"
                     android:layout_width="200dp"
                     android:layout_height="250dp"
-                    android:background="@drawable/poster_chainsawman"
+                    android:background="@drawable/poster_ghibri"
                     android:onClick="@{menuFragment::onClick}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@id/demonSlayerBtn"
@@ -52,7 +52,7 @@
                     android:background="@drawable/poster_shin_chan"
                     android:onClick="@{menuFragment::onClick}"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/chainsawManBtn"
+                    app:layout_constraintStart_toEndOf="@id/ghibriBtn"
                     app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>

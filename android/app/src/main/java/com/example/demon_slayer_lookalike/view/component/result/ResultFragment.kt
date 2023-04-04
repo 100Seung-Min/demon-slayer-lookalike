@@ -22,7 +22,7 @@ class ResultFragment : BaseFragment<FragmentResultBinding>(R.layout.fragment_res
     private fun setResult(maxPos: Int, type: String) {
         val resultArray = when (type) {
             "귀멸의 칼날" -> demonSlayer
-            "체인소 맨" -> ghibri
+            "지브리 스튜디오" -> ghibri
             "짱구는 못 말려" -> shinChan
             else -> demonSlayer
         }

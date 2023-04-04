@@ -12,8 +12,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.demon_slayer_lookalike.R
 import com.example.demon_slayer_lookalike.databinding.FragmentFaceBinding
-import com.example.demon_slayer_lookalike.ml.ModelChainsawMan
 import com.example.demon_slayer_lookalike.ml.ModelDemonSlayer
+import com.example.demon_slayer_lookalike.ml.ModelGhibri
 import com.example.demon_slayer_lookalike.ml.ModelShinChan
 import com.example.demon_slayer_lookalike.utils.imageSize
 import com.example.demon_slayer_lookalike.utils.toBuffer
@@ -62,12 +62,12 @@ class FaceFragment :
 
     private fun callAi(image: Bitmap) {
         val demonSlayerModel = ModelDemonSlayer.newInstance(requireContext())
-        val chainsawManModel = ModelChainsawMan.newInstance(requireContext())
+        val ghibriModel = ModelGhibri.newInstance(requireContext())
         val shinChanModel = ModelShinChan.newInstance(requireContext())
         val confidences = when (title) {
             "귀멸의 칼날" -> demonSlayerModel
                 .process(image.toBuffer()).outputFeature0AsTensorBuffer.floatArray
-            "체인소 맨" -> chainsawManModel
+            "지브리 스튜디오" -> ghibriModel
                 .process(image.toBuffer()).outputFeature0AsTensorBuffer.floatArray
             "짱구는 못 말려" -> shinChanModel
                 .process(image.toBuffer()).outputFeature0AsTensorBuffer.floatArray
@@ -78,7 +78,7 @@ class FaceFragment :
             if (fl == confidences.maxOrNull()!!) maxPos = index
         }
         demonSlayerModel.close()
-        chainsawManModel.close()
+        ghibriModel.close()
         shinChanModel.close()
     }
 

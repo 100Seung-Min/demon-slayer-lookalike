@@ -14,6 +14,7 @@ import com.example.demon_slayer_lookalike.R
 import com.example.demon_slayer_lookalike.databinding.FragmentFaceBinding
 import com.example.demon_slayer_lookalike.ml.ModelChainsawMan
 import com.example.demon_slayer_lookalike.ml.ModelDemonSlayer
+import com.example.demon_slayer_lookalike.ml.ModelShinChan
 import com.example.demon_slayer_lookalike.utils.imageSize
 import com.example.demon_slayer_lookalike.utils.toBuffer
 import com.example.demon_slayer_lookalike.view.base.BaseFragment
@@ -62,10 +63,13 @@ class FaceFragment :
     private fun callAi(image: Bitmap) {
         val demonSlayerModel = ModelDemonSlayer.newInstance(requireContext())
         val chainsawManModel = ModelChainsawMan.newInstance(requireContext())
+        val shinChanModel = ModelShinChan.newInstance(requireContext())
         val confidences = when (title) {
             "귀멸의 칼날" -> demonSlayerModel
                 .process(image.toBuffer()).outputFeature0AsTensorBuffer.floatArray
             "체인소 맨" -> chainsawManModel
+                .process(image.toBuffer()).outputFeature0AsTensorBuffer.floatArray
+            "짱구는 못 말려" -> shinChanModel
                 .process(image.toBuffer()).outputFeature0AsTensorBuffer.floatArray
             else -> demonSlayerModel
                 .process(image.toBuffer()).outputFeature0AsTensorBuffer.floatArray
@@ -75,6 +79,7 @@ class FaceFragment :
         }
         demonSlayerModel.close()
         chainsawManModel.close()
+        shinChanModel.close()
     }
 
     private fun viewImage() {

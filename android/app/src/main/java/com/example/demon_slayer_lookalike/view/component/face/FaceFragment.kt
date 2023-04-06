@@ -1,11 +1,14 @@
 package com.example.demon_slayer_lookalike.view.component.face
 
 import android.Manifest
+import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.ImageDecoder
 import android.media.ThumbnailUtils
+import android.net.Uri
 import android.provider.MediaStore
+import android.provider.Settings
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
@@ -14,17 +17,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.demon_slayer_lookalike.R
 import com.example.demon_slayer_lookalike.databinding.FragmentFaceBinding
-import com.example.demon_slayer_lookalike.ml.ModelConan
-import com.example.demon_slayer_lookalike.ml.ModelDemonSlayer
-import com.example.demon_slayer_lookalike.ml.ModelDoraemon
-import com.example.demon_slayer_lookalike.ml.ModelGhibri
-import com.example.demon_slayer_lookalike.ml.ModelShinChan
-import com.example.demon_slayer_lookalike.utils.checkPermission
-import com.example.demon_slayer_lookalike.utils.imageSize
-import com.example.demon_slayer_lookalike.utils.permissionRequestCode
-import com.example.demon_slayer_lookalike.utils.toBuffer
+import com.example.demon_slayer_lookalike.ml.*
+import com.example.demon_slayer_lookalike.utils.*
 import com.example.demon_slayer_lookalike.view.base.BaseFragment
 import kotlin.math.min
+
 
 class FaceFragment :
     BaseFragment<FragmentFaceBinding>(R.layout.fragment_face) {
@@ -148,11 +145,31 @@ class FaceFragment :
                 if (checkPermission(requireContext(), *requiredPermission)) {
                     getPicture.launch(Intent(MediaStore.ACTION_IMAGE_CAPTURE))
                 } else {
-                    ActivityCompat.requestPermissions(
-                        requireActivity(),
-                        requiredPermission,
-                        permissionRequestCode
-                    )
+                    if (isLastPermissionRequest(requireActivity(), *requiredPermission)) {
+                        val alertDialog = AlertDialog.Builder(context)
+                        alertDialog.setTitle("앱 권한 설정")
+                        alertDialog.setMessage("설정으로 이동합니다.")
+                        alertDialog.setPositiveButton("확인") { dialogInterface, _ ->
+                            val intent: Intent =
+                                Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).setData(
+                                    Uri.parse(
+                                        "package:" + requireActivity().applicationContext.packageName
+                                    )
+                                )
+                            startActivity(intent)
+                            dialogInterface.cancel()
+                        }
+
+                        alertDialog.setNegativeButton("취소") { dialogInterface, i -> dialogInterface.cancel() }
+
+                        alertDialog.show()
+                    } else {
+                        ActivityCompat.requestPermissions(
+                            requireActivity(),
+                            requiredPermission,
+                            permissionRequestCode
+                        )
+                    }
                 }
 
             }

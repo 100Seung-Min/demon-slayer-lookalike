@@ -29,6 +29,12 @@ class FaceFragment :
     private lateinit var image: Bitmap
     private var title = "귀멸의 칼날"
 
+    private lateinit var demonSlayerModel: ModelDemonSlayer
+    private lateinit var ghibriModel: ModelGhibri
+    private lateinit var shinChanModel: ModelShinChan
+    private lateinit var doraemonModel: ModelDoraemon
+    private lateinit var conanModel: ModelConan
+
     private val getContent =
         registerForActivityResult(ActivityResultContracts.GetContent()) { imageUri ->
             if (imageUri != null) {
@@ -62,34 +68,57 @@ class FaceFragment :
         binding.titleTxt.text = "$title 닮은 꼴 찾기"
     }
 
-    private fun callAi(image: Bitmap) {
-        val demonSlayerModel = ModelDemonSlayer.newInstance(requireContext())
-        val ghibriModel = ModelGhibri.newInstance(requireContext())
-        val shinChanModel = ModelShinChan.newInstance(requireContext())
-        val doraemonModel = ModelDoraemon.newInstance(requireContext())
-        val conanModel = ModelConan.newInstance(requireContext())
-        val confidences = when (title) {
-            "귀멸의 칼날" -> demonSlayerModel
-                .process(image.toBuffer()).outputFeature0AsTensorBuffer.floatArray
-            "지브리 스튜디오" -> ghibriModel
-                .process(image.toBuffer()).outputFeature0AsTensorBuffer.floatArray
-            "짱구는 못 말려" -> shinChanModel
-                .process(image.toBuffer()).outputFeature0AsTensorBuffer.floatArray
-            "도라에몽" -> doraemonModel
-                .process(image.toBuffer()).outputFeature0AsTensorBuffer.floatArray
-            "명탐정 코난" -> conanModel
-                .process(image.toBuffer()).outputFeature0AsTensorBuffer.floatArray
-            else -> demonSlayerModel
-                .process(image.toBuffer()).outputFeature0AsTensorBuffer.floatArray
-        }
+    private fun callAi(image: Bitmap) = when (title) {
+        "귀멸의 칼날" -> createModel(
+            createModelAction = {
+                demonSlayerModel = ModelDemonSlayer.newInstance(requireContext())
+                demonSlayerModel.process(image.toBuffer()).outputFeature0AsTensorBuffer.floatArray
+            },
+            closeModelAction = { demonSlayerModel.close() }
+        )
+        "지브리 스튜디오" -> createModel(
+            createModelAction = {
+                ghibriModel = ModelGhibri.newInstance(requireContext())
+                ghibriModel.process(image.toBuffer()).outputFeature0AsTensorBuffer.floatArray
+            },
+            closeModelAction = { ghibriModel.close() }
+        )
+        "짱구는 못 말려" -> createModel(
+            createModelAction = {
+                shinChanModel = ModelShinChan.newInstance(requireContext())
+                shinChanModel.process(image.toBuffer()).outputFeature0AsTensorBuffer.floatArray
+            },
+            closeModelAction = { shinChanModel.close() }
+        )
+        "도라에몽" -> createModel(
+            createModelAction = {
+                doraemonModel = ModelDoraemon.newInstance(requireContext())
+                doraemonModel.process(image.toBuffer()).outputFeature0AsTensorBuffer.floatArray
+            },
+            closeModelAction = { doraemonModel.close() }
+        )
+        "명탐정 코난" -> createModel(
+            createModelAction = {
+                conanModel = ModelConan.newInstance(requireContext())
+                conanModel.process(image.toBuffer()).outputFeature0AsTensorBuffer.floatArray
+            },
+            closeModelAction = { conanModel.close() }
+        )
+        else -> createModel(
+            createModelAction = {
+                demonSlayerModel = ModelDemonSlayer.newInstance(requireContext())
+                demonSlayerModel.process(image.toBuffer()).outputFeature0AsTensorBuffer.floatArray
+            },
+            closeModelAction = { demonSlayerModel.close() }
+        )
+    }
+
+    private fun createModel(createModelAction: () -> FloatArray, closeModelAction: () -> Unit) {
+        val confidences = createModelAction()
         confidences.forEachIndexed { index, fl ->
             if (fl == confidences.maxOrNull()!!) maxPos = index
         }
-        demonSlayerModel.close()
-        ghibriModel.close()
-        shinChanModel.close()
-        doraemonModel.close()
-        conanModel.close()
+        closeModelAction()
     }
 
     private fun viewImage() {

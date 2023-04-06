@@ -1,5 +1,6 @@
 package com.example.demon_slayer_lookalike.view.component.face
 
+import android.Manifest
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.ImageDecoder
@@ -7,6 +8,7 @@ import android.media.ThumbnailUtils
 import android.provider.MediaStore
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.app.ActivityCompat
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -17,7 +19,9 @@ import com.example.demon_slayer_lookalike.ml.ModelDemonSlayer
 import com.example.demon_slayer_lookalike.ml.ModelDoraemon
 import com.example.demon_slayer_lookalike.ml.ModelGhibri
 import com.example.demon_slayer_lookalike.ml.ModelShinChan
+import com.example.demon_slayer_lookalike.utils.checkPermission
 import com.example.demon_slayer_lookalike.utils.imageSize
+import com.example.demon_slayer_lookalike.utils.permissionRequestCode
 import com.example.demon_slayer_lookalike.utils.toBuffer
 import com.example.demon_slayer_lookalike.view.base.BaseFragment
 import kotlin.math.min
@@ -28,6 +32,9 @@ class FaceFragment :
     private var maxPos = 0
     private lateinit var image: Bitmap
     private var title = "귀멸의 칼날"
+    private val requiredPermission = arrayOf(
+        Manifest.permission.CAMERA
+    )
 
     private lateinit var demonSlayerModel: ModelDemonSlayer
     private lateinit var ghibriModel: ModelGhibri
@@ -138,7 +145,16 @@ class FaceFragment :
     fun onClick(view: View) {
         when (view) {
             binding.moveCamera -> {
-                getPicture.launch(Intent(MediaStore.ACTION_IMAGE_CAPTURE))
+                if (checkPermission(requireContext(), *requiredPermission)) {
+                    getPicture.launch(Intent(MediaStore.ACTION_IMAGE_CAPTURE))
+                } else {
+                    ActivityCompat.requestPermissions(
+                        requireActivity(),
+                        requiredPermission,
+                        permissionRequestCode
+                    )
+                }
+
             }
             binding.moveGallery -> {
                 getContent.launch("image/*")

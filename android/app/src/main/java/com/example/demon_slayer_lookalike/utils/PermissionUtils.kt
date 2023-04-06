@@ -4,6 +4,8 @@ import android.content.Context
 import android.content.pm.PackageManager
 import androidx.core.app.ActivityCompat
 
+const val permissionRequestCode = 100
+
 fun checkPermission(context: Context, vararg permissionList: String): Boolean {
     permissionList.forEach { permission ->
         if (ActivityCompat.checkSelfPermission(

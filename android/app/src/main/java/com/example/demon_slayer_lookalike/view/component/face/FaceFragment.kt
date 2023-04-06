@@ -13,6 +13,7 @@ import androidx.navigation.fragment.navArgs
 import com.example.demon_slayer_lookalike.R
 import com.example.demon_slayer_lookalike.databinding.FragmentFaceBinding
 import com.example.demon_slayer_lookalike.ml.ModelDemonSlayer
+import com.example.demon_slayer_lookalike.ml.ModelDoraemon
 import com.example.demon_slayer_lookalike.ml.ModelGhibri
 import com.example.demon_slayer_lookalike.ml.ModelShinChan
 import com.example.demon_slayer_lookalike.utils.imageSize
@@ -64,12 +65,15 @@ class FaceFragment :
         val demonSlayerModel = ModelDemonSlayer.newInstance(requireContext())
         val ghibriModel = ModelGhibri.newInstance(requireContext())
         val shinChanModel = ModelShinChan.newInstance(requireContext())
+        val doraemonModel = ModelDoraemon.newInstance(requireContext())
         val confidences = when (title) {
             "귀멸의 칼날" -> demonSlayerModel
                 .process(image.toBuffer()).outputFeature0AsTensorBuffer.floatArray
             "지브리 스튜디오" -> ghibriModel
                 .process(image.toBuffer()).outputFeature0AsTensorBuffer.floatArray
             "짱구는 못 말려" -> shinChanModel
+                .process(image.toBuffer()).outputFeature0AsTensorBuffer.floatArray
+            "도라에몽" -> doraemonModel
                 .process(image.toBuffer()).outputFeature0AsTensorBuffer.floatArray
             else -> demonSlayerModel
                 .process(image.toBuffer()).outputFeature0AsTensorBuffer.floatArray
@@ -80,6 +84,7 @@ class FaceFragment :
         demonSlayerModel.close()
         ghibriModel.close()
         shinChanModel.close()
+        doraemonModel.close()
     }
 
     private fun viewImage() {

@@ -8,6 +8,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.demon_slayer_lookalike.R
 import com.example.demon_slayer_lookalike.character_list.ghibri
 import com.example.demon_slayer_lookalike.character_list.demonSlayer
+import com.example.demon_slayer_lookalike.character_list.doraemon
 import com.example.demon_slayer_lookalike.character_list.shinChan
 import com.example.demon_slayer_lookalike.databinding.FragmentResultBinding
 import com.example.demon_slayer_lookalike.view.base.BaseFragment
@@ -24,6 +25,7 @@ class ResultFragment : BaseFragment<FragmentResultBinding>(R.layout.fragment_res
             "귀멸의 칼날" -> demonSlayer
             "지브리 스튜디오" -> ghibri
             "짱구는 못 말려" -> shinChan
+            "도라에몽" -> doraemon
             else -> demonSlayer
         }
         binding.result.text = resultArray[maxPos].name

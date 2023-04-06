@@ -25,6 +25,9 @@ class MenuFragment : BaseFragment<FragmentMenuBinding>(R.layout.fragment_menu) {
             binding.shinChanBtn -> {
                 moveFaceFragment("짱구는 못 말려")
             }
+            binding.doraemonBtn -> {
+                moveFaceFragment("도라에몽")
+            }
         }
     }
 }

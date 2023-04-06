@@ -65,6 +65,16 @@
                     app:layout_constraintStart_toEndOf="@id/shinChanBtn"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <ImageView
+                    android:id="@+id/conanBtn"
+                    android:layout_width="200dp"
+                    android:layout_height="250dp"
+                    android:background="@drawable/poster_conan"
+                    android:onClick="@{menuFragment::onClick}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/doraemonBtn"
+                    app:layout_constraintTop_toTopOf="parent" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </HorizontalScrollView>

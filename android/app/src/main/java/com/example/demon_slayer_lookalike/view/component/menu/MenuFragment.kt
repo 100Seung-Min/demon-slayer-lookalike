@@ -28,6 +28,9 @@ class MenuFragment : BaseFragment<FragmentMenuBinding>(R.layout.fragment_menu) {
             binding.doraemonBtn -> {
                 moveFaceFragment("도라에몽")
             }
+            binding.conanBtn -> {
+                moveFaceFragment("명탐정 코난")
+            }
         }
     }
 }

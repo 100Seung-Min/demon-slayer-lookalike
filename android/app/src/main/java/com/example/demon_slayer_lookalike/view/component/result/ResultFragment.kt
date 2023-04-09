@@ -24,6 +24,7 @@ class ResultFragment : BaseFragment<FragmentResultBinding>(R.layout.fragment_res
             "짱구는 못 말려" -> shinChan
             "도라에몽" -> doraemon
             "명탐정 코난" -> conan
+            "나루토" -> naruto
             else -> demonSlayer
         }
         binding.result.text = resultArray[maxPos].name

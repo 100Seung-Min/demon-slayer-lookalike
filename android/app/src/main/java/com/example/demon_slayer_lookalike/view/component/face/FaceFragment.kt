@@ -39,6 +39,7 @@ class FaceFragment :
     private lateinit var doraemonModel: ModelDoraemon
     private lateinit var conanModel: ModelConan
     private lateinit var narutoModel: ModelNaruto
+    private lateinit var onepieceModel: ModelOnepiece
 
     private val getContent =
         registerForActivityResult(ActivityResultContracts.GetContent()) { imageUri ->
@@ -115,6 +116,13 @@ class FaceFragment :
                 narutoModel.process(image.toBuffer()).outputFeature0AsTensorBuffer.floatArray
             },
             closeModelAction = { narutoModel.close() }
+        )
+        "원피스" -> createModel(
+            createModelAction = {
+                onepieceModel = ModelOnepiece.newInstance(requireContext())
+                onepieceModel.process(image.toBuffer()).outputFeature0AsTensorBuffer.floatArray
+            },
+            closeModelAction = { onepieceModel.close() }
         )
         else -> createModel(
             createModelAction = {

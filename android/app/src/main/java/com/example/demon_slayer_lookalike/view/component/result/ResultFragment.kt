@@ -37,9 +37,7 @@ class ResultFragment : BaseFragment<FragmentResultBinding>(R.layout.fragment_res
 
     fun onClick(view: View) {
         when (view) {
-            binding.moveFirstBtn -> {
-                findNavController().popBackStack(R.id.menuFragment, false)
-            }
+            binding.backBtn -> findNavController().popBackStack()
         }
     }
 }

@@ -22,11 +22,39 @@
             app:layout_constraintGuide_percent="0.15"/>
 
         <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/contents1Bottom"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.57"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/contents2Top"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.59"/>
+
+        <androidx.constraintlayout.widget.Guideline
             android:id="@+id/contents2Bottom"
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.55"/>
+            app:layout_constraintGuide_percent="0.87"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/contents2End"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.48"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/contents3Start"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.52"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -41,21 +69,21 @@
             android:layout_marginBottom="15dp"/>
 
         <View
-            android:id="@+id/view"
+            android:id="@+id/contents1Layout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:background="@color/darkBlue"
             android:layout_marginHorizontal="20dp"
             app:layout_constraintTop_toTopOf="@id/contents1Top"
-            app:layout_constraintBottom_toBottomOf="@id/contents2Bottom"/>
+            app:layout_constraintBottom_toBottomOf="@id/contents1Bottom"/>
 
         <ImageView
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/poster_main"
-            app:layout_constraintStart_toStartOf="@id/view"
-            app:layout_constraintEnd_toEndOf="@id/view"
-            app:layout_constraintTop_toTopOf="@id/view"
+            app:layout_constraintStart_toStartOf="@id/contents1Layout"
+            app:layout_constraintEnd_toEndOf="@id/contents1Layout"
+            app:layout_constraintTop_toTopOf="@id/contents1Layout"
             app:layout_constraintBottom_toTopOf="@id/moveMenuBtn"
             android:layout_marginVertical="20dp"
             android:layout_marginHorizontal="20dp"/>
@@ -69,9 +97,47 @@
             android:text="닮은 꼴 찾으러 가기"
             android:textColor="@color/black"
             android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="@id/view"
-            app:layout_constraintEnd_toEndOf="@id/view"
-            app:layout_constraintBottom_toBottomOf="@id/view"
+            app:layout_constraintStart_toStartOf="@id/contents1Layout"
+            app:layout_constraintEnd_toEndOf="@id/contents1Layout"
+            app:layout_constraintBottom_toBottomOf="@id/contents1Layout"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/bg_button"
+            android:onClick="@{startFragment::onClick}"/>
+
+        <View
+            android:id="@+id/contents2Layout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/contents2End"
+            app:layout_constraintTop_toTopOf="@id/contents2Top"
+            app:layout_constraintBottom_toBottomOf="@id/contents2Bottom"
+            android:layout_marginStart="20dp"
+            android:background="@color/darkBlue"/>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="5dp"
+            android:background="@drawable/ic_quiz"
+            app:layout_constraintStart_toStartOf="@id/contents2Layout"
+            app:layout_constraintEnd_toEndOf="@+id/contents2Layout"
+            app:layout_constraintTop_toTopOf="@+id/contents2Layout"
+            app:layout_constraintBottom_toTopOf="@+id/moveQuizBtn"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/moveQuizBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:fontFamily="@font/kim"
+            android:text="이름 맞추기"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="@id/contents2Layout"
+            app:layout_constraintEnd_toEndOf="@id/contents2Layout"
+            app:layout_constraintBottom_toBottomOf="@id/contents2Layout"
             android:layout_marginBottom="20dp"
             android:background="@drawable/bg_button"
             android:onClick="@{startFragment::onClick}"/>

@@ -13,9 +13,8 @@ class StartFragment : BaseFragment<FragmentStartBinding>(R.layout.fragment_start
 
     fun onClick(view: View) {
         when (view) {
-            binding.moveMenuBtn -> {
-                findNavController().navigate(R.id.action_startFragment_to_menuFragment)
-            }
+            binding.moveMenuBtn -> findNavController().navigate(R.id.action_startFragment_to_menuFragment)
+            binding.moveQuizBtn -> findNavController().navigate(R.id.action_startFragment_to_quizStartFragment)
         }
     }
 }

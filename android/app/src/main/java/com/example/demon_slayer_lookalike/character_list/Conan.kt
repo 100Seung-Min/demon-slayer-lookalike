@@ -1,5 +1,7 @@
 package com.example.demon_slayer_lookalike.character_list
 
+import com.example.demon_slayer_lookalike.dto.Character
+
 val conan = arrayOf(
     Character("코난", "https://media.tenor.com/cJ3q4osVwEgAAAAC/detective-detective-conan.gif"),
     Character(

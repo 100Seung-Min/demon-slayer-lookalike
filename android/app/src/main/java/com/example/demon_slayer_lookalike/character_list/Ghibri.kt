@@ -1,5 +1,7 @@
 package com.example.demon_slayer_lookalike.character_list
 
+import com.example.demon_slayer_lookalike.dto.Character
+
 val ghibri = arrayOf(
     Character(
         "산",

@@ -1,4 +1,4 @@
-package com.example.demon_slayer_lookalike.character_list
+package com.example.demon_slayer_lookalike.dto
 
 data class Character(
     val name: String,

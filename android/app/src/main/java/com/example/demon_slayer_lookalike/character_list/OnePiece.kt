@@ -1,5 +1,7 @@
 package com.example.demon_slayer_lookalike.character_list
 
+import com.example.demon_slayer_lookalike.dto.Character
+
 val onePiece = arrayOf(
     Character("루피", "https://i.namu.wiki/i/CPotyIEl0h8S9i_jiqeBmx8duDMqffiWrKu3n4PaLstfnxMfjLJOR5HnPLTrtmts4VrXZqgPTG4VDEU0TneQ1g.gif"),
     Character("조로", "https://getfile.fmkorea.com/getfile.php?code=d72c333dc64968daad3426dc5fde6ec7&file=http%3A%2F%2Ft1.daumcdn.net%2Fthumb%2FR1024x0%2F%3Ffname%3Dhttp%3A%2F%2Fcfile252.uf.daum.net%2Fimage%2F257E884D5554270924A989&redir=Y"),

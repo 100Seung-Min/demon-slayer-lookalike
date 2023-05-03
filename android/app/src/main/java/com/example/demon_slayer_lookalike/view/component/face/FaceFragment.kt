@@ -142,6 +142,8 @@ class FaceFragment :
     }
 
     private fun viewImage() {
+        binding.noImg.visibility = View.GONE
+        binding.resultBtn.visibility = View.VISIBLE
         val dimension = min(image.width, image.height)
         image = ThumbnailUtils.extractThumbnail(image, dimension, dimension)
         binding.img.apply {
@@ -150,13 +152,12 @@ class FaceFragment :
         }
         image = Bitmap.createScaledBitmap(image, imageSize, imageSize, false)
         callAi(image)
-        binding.moveCamera.visibility = View.GONE
-        binding.moveGallery.visibility = View.GONE
-        binding.rePhoto.visibility = View.VISIBLE
     }
 
     fun onClick(view: View) {
         when (view) {
+            binding.backBtn -> findNavController().popBackStack()
+            binding.moveGallery -> getContent.launch("image/*")
             binding.moveCamera -> {
                 if (checkPermission(requireContext(), *requiredPermission)) {
                     getPicture.launch(Intent(MediaStore.ACTION_IMAGE_CAPTURE))
@@ -189,29 +190,13 @@ class FaceFragment :
                 }
 
             }
-            binding.moveGallery -> {
-                getContent.launch("image/*")
-            }
-            binding.moveResultBtn -> {
-                if (binding.img.isVisible) {
-                    findNavController().navigate(
-                        FaceFragmentDirections.actionFaceFragmentToResultFragment(
-                            type = title,
-                            maxPos = maxPos
-                        )
+            binding.resultBtn -> {
+                findNavController().navigate(
+                    FaceFragmentDirections.actionFaceFragmentToResultFragment(
+                        type = title,
+                        maxPos = maxPos
                     )
-                }
-            }
-            binding.moveFirstBtn -> {
-                findNavController().popBackStack()
-            }
-            binding.rePhoto -> {
-                with(binding) {
-                    img.visibility = View.GONE
-                    moveCamera.visibility = View.VISIBLE
-                    moveGallery.visibility = View.VISIBLE
-                    rePhoto.visibility = View.GONE
-                }
+                )
             }
         }
     }

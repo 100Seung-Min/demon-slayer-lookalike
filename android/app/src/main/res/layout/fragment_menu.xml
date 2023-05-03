@@ -14,90 +14,50 @@
         android:layout_height="match_parent"
         android:background="@color/background">
 
-        <HorizontalScrollView
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/menuTitleTxt"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="원하는 애니를 선택해주세요"
+            android:textSize="28sp"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="60dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/menuRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/menuTitleTxt"
+            android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <View
+            android:id="@+id/backBtn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="20dp"
+            android:layout_marginStart="20dp"
+            android:onClick="@{menuFragment::onClick}"
+            android:background="@drawable/bg_back_btn"/>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/demonSlayerBtn"
-                    android:layout_width="200dp"
-                    android:layout_height="250dp"
-                    android:background="@drawable/poster_demonslayer"
-                    android:onClick="@{menuFragment::onClick}"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageView
-                    android:id="@+id/ghibriBtn"
-                    android:layout_width="200dp"
-                    android:layout_height="250dp"
-                    android:background="@drawable/poster_ghibri"
-                    android:onClick="@{menuFragment::onClick}"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/demonSlayerBtn"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageView
-                    android:id="@+id/shinChanBtn"
-                    android:layout_width="200dp"
-                    android:layout_height="250dp"
-                    android:background="@drawable/poster_shin_chan"
-                    android:onClick="@{menuFragment::onClick}"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/ghibriBtn"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageView
-                    android:id="@+id/doraemonBtn"
-                    android:layout_width="200dp"
-                    android:layout_height="250dp"
-                    android:background="@drawable/poster_doraemon"
-                    android:onClick="@{menuFragment::onClick}"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/shinChanBtn"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageView
-                    android:id="@+id/conanBtn"
-                    android:layout_width="200dp"
-                    android:layout_height="250dp"
-                    android:background="@drawable/poster_conan"
-                    android:onClick="@{menuFragment::onClick}"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/doraemonBtn"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageView
-                    android:id="@+id/narutoBtn"
-                    android:layout_width="200dp"
-                    android:layout_height="250dp"
-                    android:background="@drawable/poster_naruto"
-                    android:onClick="@{menuFragment::onClick}"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/conanBtn"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageView
-                    android:id="@+id/onepieceBtn"
-                    android:layout_width="200dp"
-                    android:layout_height="250dp"
-                    android:background="@drawable/poster_onepiece"
-                    android:onClick="@{menuFragment::onClick}"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/narutoBtn"/>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </HorizontalScrollView>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="10dp"
+            android:background="@drawable/ic_back"
+            app:layout_constraintStart_toStartOf="@id/backBtn"
+            app:layout_constraintEnd_toEndOf="@id/backBtn"
+            app:layout_constraintTop_toTopOf="@id/backBtn"
+            app:layout_constraintBottom_toBottomOf="@id/backBtn"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

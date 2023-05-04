@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="quizStartFragment"
+            type="com.example.demon_slayer_lookalike.view.component.quiz.QuizStartFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+
+        <TextView
+            android:id="@+id/titleTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/kim"
+            android:text="이름 맞추기 게임"
+            android:textColor="@color/white"
+            android:textSize="44sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/startBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="start"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="120dp"
+            android:layout_marginHorizontal="20dp"
+            android:textSize="38sp"
+            android:onClick="@{quizStartFragment::onClick}"
+            android:background="@drawable/bg_button"
+            android:fontFamily="@font/kim"/>
+
+        <View
+            android:id="@+id/backBtn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:onClick="@{quizStartFragment::onClick}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="20dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/bg_back_btn"/>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="10dp"
+            android:background="@drawable/ic_back"
+            app:layout_constraintStart_toStartOf="@id/backBtn"
+            app:layout_constraintEnd_toEndOf="@id/backBtn"
+            app:layout_constraintTop_toTopOf="@id/backBtn"
+            app:layout_constraintBottom_toBottomOf="@id/backBtn"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -12,17 +12,17 @@
         tools:layout="@layout/fragment_face">
         <action
             android:id="@+id/action_faceFragment_to_resultFragment"
-            app:destination="@id/resultFragment" />
+            app:destination="@id/faceResultFragment" />
         <argument
             android:name="type"
             app:argType="string"
             android:defaultValue="귀멸의 칼날" />
     </fragment>
     <fragment
-        android:id="@+id/resultFragment"
-        android:name="com.example.demon_slayer_lookalike.view.component.result.ResultFragment"
+        android:id="@+id/faceResultFragment"
+        android:name="com.example.demon_slayer_lookalike.view.component.face.FaceResultFragment"
         android:label="ResultFragment"
-        tools:layout="@layout/fragment_result">
+        tools:layout="@layout/fragment_face_result">
         <argument
             android:name="maxPos"
             android:defaultValue="0"
@@ -39,16 +39,16 @@
         tools:layout="@layout/fragment_start">
         <action
             android:id="@+id/action_startFragment_to_menuFragment"
-            app:destination="@id/menuFragment" />
+            app:destination="@id/faceMenuFragment" />
         <action
             android:id="@+id/action_startFragment_to_quizStartFragment"
             app:destination="@id/quizStartFragment" />
     </fragment>
     <fragment
-        android:id="@+id/menuFragment"
-        android:name="com.example.demon_slayer_lookalike.view.component.menu.MenuFragment"
+        android:id="@+id/faceMenuFragment"
+        android:name="com.example.demon_slayer_lookalike.view.component.face.FaceMenuFragment"
         android:label="MenuFragment"
-        tools:layout="@layout/fragment_menu" >
+        tools:layout="@layout/fragment_face_menu" >
         <action
             android:id="@+id/action_menuFragment_to_faceFragment"
             app:destination="@id/faceFragment" />

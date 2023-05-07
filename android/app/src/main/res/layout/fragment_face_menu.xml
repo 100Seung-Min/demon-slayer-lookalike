@@ -6,7 +6,7 @@
 
         <variable
             name="menuFragment"
-            type="com.example.demon_slayer_lookalike.view.component.menu.MenuFragment" />
+            type="com.example.demon_slayer_lookalike.view.component.face.FaceMenuFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

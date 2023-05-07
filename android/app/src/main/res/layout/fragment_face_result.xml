@@ -6,7 +6,7 @@
 
         <variable
             name="resultFragment"
-            type="com.example.demon_slayer_lookalike.view.component.result.ResultFragment" />
+            type="com.example.demon_slayer_lookalike.view.component.face.FaceResultFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

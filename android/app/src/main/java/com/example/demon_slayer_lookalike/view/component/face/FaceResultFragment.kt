@@ -1,4 +1,4 @@
-package com.example.demon_slayer_lookalike.view.component.result
+package com.example.demon_slayer_lookalike.view.component.face
 
 import android.view.View
 import androidx.navigation.fragment.findNavController
@@ -7,13 +7,13 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.demon_slayer_lookalike.R
 import com.example.demon_slayer_lookalike.character_list.*
-import com.example.demon_slayer_lookalike.databinding.FragmentResultBinding
+import com.example.demon_slayer_lookalike.databinding.FragmentFaceResultBinding
 import com.example.demon_slayer_lookalike.view.base.BaseFragment
 
-class ResultFragment : BaseFragment<FragmentResultBinding>(R.layout.fragment_result) {
+class FaceResultFragment : BaseFragment<FragmentFaceResultBinding>(R.layout.fragment_face_result) {
     override fun createView() {
         binding.resultFragment = this
-        val args: ResultFragmentArgs by navArgs()
+        val args: FaceResultFragmentArgs by navArgs()
         setResult(maxPos = args.maxPos, type = args.type)
     }
 

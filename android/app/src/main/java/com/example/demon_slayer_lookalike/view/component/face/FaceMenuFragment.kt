@@ -1,16 +1,15 @@
-package com.example.demon_slayer_lookalike.view.component.menu
+package com.example.demon_slayer_lookalike.view.component.face
 
 import android.view.View
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.demon_slayer_lookalike.R
-import com.example.demon_slayer_lookalike.databinding.FragmentMenuBinding
+import com.example.demon_slayer_lookalike.databinding.FragmentFaceMenuBinding
 import com.example.demon_slayer_lookalike.dto.Menu
 import com.example.demon_slayer_lookalike.view.adapter.MenuAdapter
 import com.example.demon_slayer_lookalike.view.base.BaseFragment
 
-class MenuFragment : BaseFragment<FragmentMenuBinding>(R.layout.fragment_menu) {
+class FaceMenuFragment : BaseFragment<FragmentFaceMenuBinding>(R.layout.fragment_face_menu) {
 
     private lateinit var menuAdapter: MenuAdapter
 
@@ -43,7 +42,7 @@ class MenuFragment : BaseFragment<FragmentMenuBinding>(R.layout.fragment_menu) {
     }
 
     private fun moveFaceFragment(type: String) =
-        findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToFaceFragment(type = type))
+        findNavController().navigate(FaceMenuFragmentDirections.actionMenuFragmentToFaceFragment(type = type))
 
     fun onClick(view: View) {
         when(view) {

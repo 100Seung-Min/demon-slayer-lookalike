@@ -3,17 +3,9 @@
     src: local(NanumYaGeunHaNeunGimJuIm);
 }
 
-* {
-    margin: 0px;
-    padding: 0px;
-}
-
 img {
     display: block;
     margin: auto;
-}
-body {
-    background-color: black;
 }
 
 a {
@@ -23,7 +15,7 @@ a {
     right: 0;
     margin: 0 auto;
     width: max-content;
-    margin-bottom: 2%;
+    margin-bottom: 15px;
     font-family: kim;
     font-size: 1.5rem;
     color: black;
@@ -43,16 +35,6 @@ a {
     z-index: 1;
     margin-top: 2%;
     text-align: center;
-}
-
-#background {
-    position: fixed;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    width: 40%;
-    height: 100%;
-    background-color: #00A2E8;
 }
 
 #poze-box {

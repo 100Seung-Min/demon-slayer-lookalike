@@ -13,33 +13,36 @@ img {
     margin: auto;
 }
 body {
-    background-color: #00A2E8;
+    background-color: black;
 }
 
 a {
-    font-family: kim;
-    position: fixed;
-    bottom: 0px;
-    margin-bottom: 15%;
-    font-size: 2.5rem;
-    border: 0px;
-    color: red;
-    text-decoration: none;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-#title {
-    position: fixed;
+    position: absolute;
+    bottom: 0;
     left: 0;
     right: 0;
     margin: 0 auto;
+    width: max-content;
+    margin-bottom: 2%;
+    font-family: kim;
+    font-size: 1.5rem;
+    color: black;
+    background-color: white;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-decoration: none;
+    border-radius: 20px;
+}
+
+#title {
     font-family: kim;
     font-size: 4rem;
     color: aliceblue;
-    width: max-content;
     z-index: 1;
     margin-top: 2%;
+    text-align: center;
 }
 
 #background {
@@ -49,5 +52,34 @@ a {
     margin: 0 auto;
     width: 40%;
     height: 100%;
-    background-color: black;
+    background-color: #00A2E8;
+}
+
+#poze-box {
+    position: relative;
+    background-color: #006895;
+    width: 90%;
+    height: 40%;
+    margin: 0 auto;
+    margin-top: 5%;
+}
+
+#quiz-box {
+    position: relative;
+    float: left;
+    background-color: #006895;
+    width: 42%;
+    height: 30%;
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+#recommend-box {
+    position: relative;
+    float: right;
+    background-color: #006895;
+    width: 42%;
+    height: 30%;
+    margin-top: 5%;
+    margin-right: 5%;
 }

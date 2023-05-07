@@ -18,12 +18,12 @@ class QuizResultFragment: BaseFragment<FragmentQuizResultBinding>(R.layout.fragm
 
     private fun viewResult() = with(binding) {
         img.setBackgroundResource(when(quizViewModel.getScore()) {
-            0 -> R.drawable.bg_ailien
-            in 1..40 -> R.drawable.bg_normal
-            in 41..60 -> R.drawable.bg_newbie
-            in 61..80 -> R.drawable.bg_ailien
-            in 81..99 -> R.drawable.bg_ailien
-            else -> R.drawable.bg_ailien
+            0 -> R.drawable.ic_ailien
+            in 1..40 -> R.drawable.ic_normal
+            in 41..60 -> R.drawable.ic_newbie
+            in 61..80 -> R.drawable.ic_geines
+            in 81..99 -> R.drawable.ic_cheonjae
+            else -> R.drawable.ic_god
         })
         result.text = "${quizViewModel.getScore()}점"
     }

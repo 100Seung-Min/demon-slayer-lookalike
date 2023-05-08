@@ -8,6 +8,12 @@ var quizCount = 0;
 var answerNumber = 0;
 var score = 0;
 
+if(localStorage.getItem('mode') == 'easy') {
+    document.getElementById('hardAnswerContainer').style.display = 'none';
+} else {
+    document.getElementById('easyAnswerContiner').style.display = 'none';
+}
+
 shuffle(randomQuizList)
 while(quizList.length < 20) {
     quizList.push(Math.floor(Math.random() * (character.length - 3)) + 1);
@@ -22,7 +28,7 @@ function setQuiz() {
     testList = [answerNumber - 1, answerNumber, answerNumber + 1, answerNumber + 2];
     shuffle(testList)
     document.getElementById("img").src = img[randomQuizList[answerNumber]];
-    document.querySelectorAll(".answerBtn").forEach((btn, index) => {
+    document.querySelectorAll(".easyAnswerBtn").forEach((btn, index) => {
         btn.innerText = character[randomQuizList[testList[index]]];
     })
 }
@@ -36,13 +42,13 @@ function shuffle(array) {
     }
 }
 
-function isAnswer(index, button) {
+function easyAnswer(index, button) {
     if(testList[index] == answerNumber) {
         score += 5;
     } else {
         button.style.backgroundColor = "#FF0000";
     }
-    document.querySelectorAll(".answerBtn").forEach((btn, index) => {
+    document.querySelectorAll(".easyAnswerBtn").forEach((btn, index) => {
         if(testList[index] == answerNumber) {
             btn.style.backgroundColor = "#27FA7B";
         }
@@ -59,6 +65,29 @@ function isAnswer(index, button) {
                 btn.disabled = false;
             })
             setQuiz()
+        }
+    }, 1000);
+}
+
+function hardAnswer(answer) {
+    let button = document.getElementById('hardAnswerBtn');
+    if(answer.value == character[randomQuizList[answerNumber]]) {
+        button.style.backgroundColor = "#27FA7B";
+        score += 5;
+    } else {
+        button.style.backgroundColor = "#FF0000";
+    }
+    button.disabled = true;
+    setTimeout(() => {
+        if(quizCount >= 19) {
+            localStorage.setItem("score", score);
+            window.location.href = "../result/result.html";
+        } else {
+            answer.value = '';
+            quizCount++;
+            button.style.backgroundColor = "white";
+            button.disabled = false;
+            setQuiz();
         }
     }, 1000);
 }

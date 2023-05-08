@@ -13,10 +13,16 @@
         <div id="imgContainer">
             <img id="img"/>
         </div>
-        <button id="answer1" class="answerBtn btn" onclick="isAnswer(0, answer1)"></button>
-        <button id="answer2" class="answerBtn btn" onclick="isAnswer(1, answer2)"></button>
-        <button id="answer3" class="answerBtn btn" onclick="isAnswer(2, answer3)"></button>
-        <button id="answer4" class="answerBtn btn" onclick="isAnswer(3, answer4)"></button>
+        <div id="easyAnswerContiner">
+            <button id="answer1" class="easyAnswerBtn btn" onclick="isAnswer(0, answer1)"></button>
+            <button id="answer2" class="easyAnswerBtn btn" onclick="isAnswer(1, answer2)"></button>
+            <button id="answer3" class="easyAnswerBtn btn" onclick="isAnswer(2, answer3)"></button>
+            <button id="answer4" class="easyAnswerBtn btn" onclick="isAnswer(3, answer4)"></button>
+        </div>
+        <div id="hardAnswerContainer">
+            <input id="hardAnswerInput" placeholder="정답을 입력해주세요"/>
+            <button id="hardAnswerBtn" class="btn" onClick="hardAnswer(hardAnswerInput)">제출</button>
+        </div>
     </div>
     <script src="quiz.js"></script>
 </body>

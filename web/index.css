@@ -8,35 +8,6 @@ img {
     margin: auto;
 }
 
-a {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    width: max-content;
-    margin-bottom: 15px;
-    font-family: kim;
-    font-size: 1.5rem;
-    color: black;
-    background-color: white;
-    padding-left: 25px;
-    padding-right: 25px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    text-decoration: none;
-    border-radius: 20px;
-}
-
-#title {
-    font-family: kim;
-    font-size: 4rem;
-    color: aliceblue;
-    z-index: 1;
-    margin-top: 2%;
-    text-align: center;
-}
-
 #poze-box {
     position: relative;
     background-color: #006895;
@@ -64,4 +35,18 @@ a {
     height: 30%;
     margin-top: 5%;
     margin-right: 5%;
+}
+
+.indexBtn {
+    width: max-content;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
 }

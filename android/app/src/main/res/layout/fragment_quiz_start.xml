@@ -27,12 +27,25 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/startBtn"
+            android:id="@+id/easyBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="start"
+            android:text="easy mode"
+            app:layout_constraintBottom_toTopOf="@id/hardBtn"
+            android:layout_marginBottom="20dp"
+            android:layout_marginHorizontal="20dp"
+            android:textSize="38sp"
+            android:onClick="@{quizStartFragment::onClick}"
+            android:background="@drawable/bg_button"
+            android:fontFamily="@font/kim"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/hardBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="hard mode"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="120dp"
+            android:layout_marginBottom="110dp"
             android:layout_marginHorizontal="20dp"
             android:textSize="38sp"
             android:onClick="@{quizStartFragment::onClick}"

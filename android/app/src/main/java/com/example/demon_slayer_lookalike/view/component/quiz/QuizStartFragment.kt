@@ -19,7 +19,10 @@ class QuizStartFragment: BaseFragment<FragmentQuizStartBinding>(R.layout.fragmen
     fun onClick(view: View) {
         when(view) {
             binding.backBtn -> findNavController().popBackStack()
-            binding.startBtn -> findNavController().navigate(R.id.action_quizStartFragment_to_quizFragment)
+            binding.easyBtn, binding.hardBtn -> {
+                quizViewModel.setMode(view.id)
+                findNavController().navigate(R.id.action_quizStartFragment_to_quizFragment)
+            }
         }
     }
 }

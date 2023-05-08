@@ -3,6 +3,7 @@ package com.example.demon_slayer_lookalike.view.component.quiz
 import android.os.Handler
 import android.view.View
 import androidx.appcompat.widget.AppCompatButton
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -37,20 +38,31 @@ class QuizFragment: BaseFragment<FragmentQuizBinding>(R.layout.fragment_quiz) {
             .load(answer.imgId)
             .diskCacheStrategy(DiskCacheStrategy.SOURCE)
             .into(img)
-        arrayOf(firstAnswer, secondAnswer, thirdAnswer, forthAnswer).forEachIndexed { i, answer ->
-            answer.text = answerList[i].name
+        if (quizViewModel.isEasyMode()) {
+            hardAnswerLayout.visibility = View.GONE
+            arrayOf(firstAnswer, secondAnswer, thirdAnswer, forthAnswer).forEachIndexed { i, answer ->
+                answer.text = answerList[i].name
+            }
+        } else {
+            answerInput.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.darkBlue)
+            easyAnswerLayout.visibility = View.GONE
         }
     }
 
     private fun isAnswer(isAnswer: Boolean, selectView: AppCompatButton) {
         if (isAnswer) {
+            selectView.setBackgroundResource(R.drawable.bg_answer)
             quizViewModel.plusScore()
         } else {
             selectView.setBackgroundResource(R.drawable.bg_wrong)
         }
-        arrayOf(binding.firstAnswer, binding.secondAnswer, binding.thirdAnswer, binding.forthAnswer).forEach {
-            if (it.text == answer.name) it.setBackgroundResource(R.drawable.bg_answer)
-            it.isClickable = false
+        if(quizViewModel.isEasyMode()) {
+            arrayOf(binding.firstAnswer, binding.secondAnswer, binding.thirdAnswer, binding.forthAnswer).forEach {
+                if (it.text == answer.name) it.setBackgroundResource(R.drawable.bg_answer)
+                it.isClickable = false
+            }
+        } else {
+            selectView.isClickable = false
         }
     }
 
@@ -76,6 +88,10 @@ class QuizFragment: BaseFragment<FragmentQuizBinding>(R.layout.fragment_quiz) {
             }
             binding.forthAnswer -> {
                 isAnswer(binding.forthAnswer.text == answer.name, binding.forthAnswer)
+                nextQuiz(position)
+            }
+            binding.submitBtn -> {
+                isAnswer(binding.answerInput.text.toString() == answer.name, binding.submitBtn)
                 nextQuiz(position)
             }
         }

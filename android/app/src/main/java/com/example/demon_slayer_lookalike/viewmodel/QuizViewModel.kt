@@ -1,6 +1,7 @@
 package com.example.demon_slayer_lookalike.viewmodel
 
 import androidx.lifecycle.ViewModel
+import com.example.demon_slayer_lookalike.R
 import com.example.demon_slayer_lookalike.character_list.conan
 import com.example.demon_slayer_lookalike.character_list.demonSlayer
 import com.example.demon_slayer_lookalike.character_list.doraemon
@@ -13,6 +14,7 @@ class QuizViewModel: ViewModel() {
     private var quizList = arrayOf(*demonSlayer, *ghibri, *shinChan, *doraemon, *conan, *onePiece)
     private var answerList = arrayOf<Int>()
     private var score = 0
+    private var mode = "easy"
 
     fun shuffleQuizList() {
         quizList.shuffle()
@@ -25,6 +27,15 @@ class QuizViewModel: ViewModel() {
     fun getQuiz(position: Int): Array<Character> = arrayOf(quizList[answerList[position] - 1], quizList[answerList[position]], quizList[answerList[position] + 1], quizList[answerList[position] + 2]).apply { shuffle() }
 
     fun getAnswer(position: Int): Character = quizList[answerList[position]]
+
+    fun setMode(modeId: Int) {
+        this.mode = when(modeId) {
+            R.id.easyBtn -> "easy"
+            else -> "hard"
+        }
+    }
+
+    fun isEasyMode(): Boolean = mode == "easy"
 
     fun plusScore() = score++
 

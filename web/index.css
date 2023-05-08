@@ -3,11 +3,6 @@
     src: local(NanumYaGeunHaNeunGimJuIm);
 }
 
-img {
-    display: block;
-    margin: auto;
-}
-
 #poze-box {
     position: relative;
     background-color: #006895;
@@ -25,6 +20,10 @@ img {
     height: 30%;
     margin-top: 5%;
     margin-left: 5%;
+}
+
+#quizImg {
+    width: 100%;
 }
 
 #recommend-box {

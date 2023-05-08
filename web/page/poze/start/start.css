@@ -1,0 +1,25 @@
+canvas {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 15%;
+    width: 80%;
+    height: 50%;
+    transform: translateX(-50%);
+}
+
+#description {
+    font-size: 1.8rem;
+    margin-top: 20px;
+    color: aliceblue;
+}
+
+#countDown {
+    position: fixed;
+    font-size: 25rem;
+    z-index: 1;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    bottom: 50%;
+    transform: translateY(50%);
+}

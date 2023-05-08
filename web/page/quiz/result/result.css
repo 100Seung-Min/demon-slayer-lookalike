@@ -1,0 +1,37 @@
+#title {
+    display: inline;
+    font-size: 1.2rem;
+}
+
+#score {
+    display: inline;
+    font-family: kim;
+    font-size: 2rem;
+    color: aliceblue;
+    z-index: 1;
+    margin-top: 2%;
+    text-align: center;
+}
+
+#imgContainer {
+    position: relative;
+    width: 100%;
+    margin-top: 2%;
+    height: 42%;
+    background-color: #006895;
+    margin-bottom: 30px;
+}
+
+#img {
+    width: 50%;
+    height: 100%;
+}
+
+.resultBtn {
+    margin-left: 3%;
+    margin-right: 3%;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}

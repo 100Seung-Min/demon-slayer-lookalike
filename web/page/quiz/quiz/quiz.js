@@ -49,7 +49,7 @@ function isAnswer(index, button) {
         btn.disabled = true;
     })
     setTimeout(() => {
-        if(quizCount >= 2) {
+        if(quizCount >= 19) {
             localStorage.setItem("score", score);
             window.location.href = "../result/result.html";
         } else {

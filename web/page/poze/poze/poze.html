@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
+    <link rel="stylesheet" href="../../../default.css"/>
+    <link rel="stylesheet" href="poze.css"/>
+</head>
+<body>
+    <div id="background">
+        <div id="lifeContainer">
+            <p id="lifeTxt">My Life</p>
+            <img class="life" src="../../../img/ic_life.png"/>
+            <img class="life" src="../../../img/ic_life.png"/>
+            <img class="life" src="../../../img/ic_life.png"/>
+            <p id="scoreTxt">Score : </p>
+            <p id="score">0</p>
+        </div>
+        <div id="imgContainer"><img id="img"/></div>
+        <div><canvas id="canvas"></canvas></div>
+        <progress id="remainTime" value="300" max="300"></progress>
+    </div>
+    <script src="poze.js"></script>
+</body>
+</html>

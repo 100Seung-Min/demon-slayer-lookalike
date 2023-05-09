@@ -1,0 +1,68 @@
+#imgContainer {
+    position: absolute;
+    width: 35%;
+    height: 25%;
+    right: 0;
+    margin-right: 10%;
+    margin-top: 10%;
+}
+
+#img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translateX(-50%);
+}
+
+#lifeContainer {
+    position: absolute;
+    width: 50%;
+    height: 25%;
+    left: 0;
+    margin-left: 5%;
+    margin-top: 10%;
+    text-align: start;
+}
+
+#lifeTxt {
+    color: aliceblue;
+    display: inline;
+    font-size: 3rem;
+}
+
+#scoreTxt {
+    display: inline;
+    color: aliceblue;
+    font-size: 3rem;
+}
+
+#score {
+    display: inline;
+    font-size: 4rem;
+    color: aliceblue;
+}
+
+.life {
+    display: inline;
+    width: 13%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+canvas {
+    position: absolute;
+    width: 80%;
+    height: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    margin-bottom: 15%;
+}
+
+#remainTime {
+    position: absolute;
+    bottom: 0;
+    width: 80%;
+    height: 5%;
+    transform: translateX(-50%);
+    margin-bottom: 2%;
+}

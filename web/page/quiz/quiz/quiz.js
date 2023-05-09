@@ -60,7 +60,7 @@ function easyAnswer(index, button) {
             window.location.href = "../result/result.html";
         } else {
             quizCount++
-            document.querySelectorAll(".answerBtn").forEach((btn, index) => {
+            document.querySelectorAll(".easyAnswerBtn").forEach((btn, index) => {
                 btn.style.backgroundColor = "white"
                 btn.disabled = false;
             })

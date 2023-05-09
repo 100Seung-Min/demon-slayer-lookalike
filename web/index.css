@@ -12,6 +12,12 @@
     margin-top: 5%;
 }
 
+#pozeImg {
+    margin-top: 30px;
+    width: 70%;
+    height: 70%;
+}
+
 #quiz-box {
     position: relative;
     float: left;

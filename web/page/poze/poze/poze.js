@@ -1,6 +1,6 @@
 const URL = "../../../model/poze/";
 let model, webcam, maxPredictions, max, maxPosition, maxName;
-var remainTime = 300
+var remainTime = 500
 var currentQuizIndex = 0;
 var score = 0;
 var life = 2;
@@ -31,7 +31,6 @@ var poze = [
     "https://dispatch.cdnser.be/cms-content/uploads/2022/04/08/2db022d7-ce6f-45dc-8bda-6e41c7803534.jpg",
     "https://newsimg.sedaily.com/2018/10/18/1S5YLW9VQQ_1.jpg",
     "https://scontent-ssn1-1.xx.fbcdn.net/v/t1.6435-9/50257614_2294798580791151_5483107674167967744_n.png?_nc_cat=110&ccb=1-7&_nc_sid=730e14&_nc_ohc=YPuu23Mcn40AX8idFqa&_nc_ht=scontent-ssn1-1.xx&oh=00_AfAoL5VTGg9kEr5QpuSvmehRbE4uRn5Nbn_vYLG49qYnEg&oe=64825A5A",
-    "https://i.pinimg.com/736x/84/d5/98/84d5987fb1a25bf2ade8229fc24ea8bb.jpg",
     "https://mblogthumb-phinf.pstatic.net/MjAyMjA2MThfMTgy/MDAxNjU1NTI2NTEyMjM1.U5iDn8yYnWp7yTG_8g9LbAKEqpzoO9apLBt1MqsFnz0g.M7tSiRcwj1TsynhLZWBYs9_69liWYsaQ7zJUlXZn3cEg.JPEG.dewichien/%ED%85%9F%EC%B9%B4%EC%9D%B4.jpg?type=w800",
     "https://mblogthumb-phinf.pstatic.net/MjAyMjA2MThfMTgy/MDAxNjU1NTI2NTEyMjM1.U5iDn8yYnWp7yTG_8g9LbAKEqpzoO9apLBt1MqsFnz0g.M7tSiRcwj1TsynhLZWBYs9_69liWYsaQ7zJUlXZn3cEg.JPEG.dewichien/%ED%85%9F%EC%B9%B4%EC%9D%B4.jpg?type=w800",
     "https://www.footballist.co.kr/news/photo/202012/129542_55351_4156.jpg",
@@ -99,7 +98,7 @@ function setQuiz() {
     currentQuizIndex = Math.floor(Math.random() * poze.length - 1)
     document.getElementById("img").src = poze[currentQuizIndex]
     document.getElementById("score").innerText = score
-    remainTime = 300;
+    remainTime = 500;
     time();
 }
 

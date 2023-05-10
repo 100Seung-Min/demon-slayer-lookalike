@@ -20,9 +20,29 @@ var poze = [
     "https://mblogthumb-phinf.pstatic.net/20151009_290/qufqmghgxf_1444330326529X7K7s_PNG/20151009_004430.png?type=w2",
     "https://image2.1004gundam.com/item_images/goods/380/1376393266.jpg",
     "http://timg.humoruniv.com/thumb_crop_resize.php?url=http://down.humoruniv.com//hwiparambbs/data/editor/pdswait/e_s542756001_6647ef99356b8784d586c6b15603b013cf178445.jpg?SIZE=800x939",
-    "",
-    "",
-    ""
+    "고양이",
+    "https://img.etnews.com/news/article/2016/09/20/cms_temp_article_20181652091828.jpg",
+    "다나카",
+    "https://static.inews24.com/v1/2adacb78513ee4.jpg",
+    "메이드",
+    "https://edgio.clien.net/F01/5508945/b86ab91a8f314e23b15.JPEG?w=230&h=150",
+    "클럽춤",
+    "https://i.ytimg.com/vi/eCk6sW5qXaQ/maxresdefault.jpg",
+    "쉿",
+    "https://img3.daumcdn.net/thumb/R658x0.q70/?fname=https://t1.daumcdn.net/news/202110/13/sportstoday/20211013172114229fvsn.jpg",
+    "사이드체스트",
+    "데헷페로",
+    "몰루",
+    "앗살라말라이쿰",
+    "갸루피스",
+    "손하트",
+    "배트맨",
+    "아헤가오",
+    "텟카이",
+    "아무일",
+    "손흥민",
+    "이강인"
+
 ]
 
 init();

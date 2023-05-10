@@ -73,8 +73,10 @@ async function predict() {
         const { pose, posenetOutput } = await model.estimatePose(webcam.canvas);
         const prediction = await model.predict(posenetOutput);
         if(prediction[currentQuizIndex].probability.toFixed(2) >= '0.50') {
-            score += 100
-            setQuiz()
+            score += 100;
+            setTimeout(() => {
+                setQuiz();
+            }, 1000);
         }
         drawPose(pose);
     } catch (e) {
@@ -111,7 +113,9 @@ function time() {
         } else {
             lifeImg[life].src = "../../../img/ic_no_life.png";
             life--;
-            setQuiz();
+            setTimeout(() => {
+                setQuiz();
+            }, 1000);
         }
     } else {
         setTimeout(() => {

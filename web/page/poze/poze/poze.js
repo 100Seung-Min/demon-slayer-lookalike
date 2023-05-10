@@ -76,7 +76,7 @@ async function predict() {
             score += 100;
             setTimeout(() => {
                 setQuiz();
-            }, 1000);
+            }, 2000);
         }
         drawPose(pose);
     } catch (e) {
@@ -115,7 +115,7 @@ function time() {
             life--;
             setTimeout(() => {
                 setQuiz();
-            }, 1000);
+            }, 2000);
         }
     } else {
         setTimeout(() => {
